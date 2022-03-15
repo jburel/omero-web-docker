@@ -37,6 +37,6 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             build-args: "PARENT_IMAGE=${{ env.nameParent }}"
-            context: standalone
+            context: ./standalone
             tags: ${{ join(fromJson(steps.gettags.outputs.tags)) }}
             push: true
