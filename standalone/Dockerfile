@@ -1,4 +1,5 @@
 ARG PARENT_IMAGE=openmicroscopy/omero-web:latest
+ARG LOCATION=./standalone/
 FROM ${PARENT_IMAGE}
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
@@ -15,6 +16,6 @@ RUN /opt/omero/web/venv3/bin/pip install \
         omero-webtagging-tagsearch \
         whitenoise
 
-ADD 01-default-webapps.omero /opt/omero/web/config/
+ADD ${LOCATION}01-default-webapps.omero /opt/omero/web/config/
 
 USER omero-web

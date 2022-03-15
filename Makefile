@@ -72,7 +72,7 @@ endif
 	@MAJOR=$(shell echo $(VERSION) | cut -f1 -d. );\
 	docker tag $(REPO)/omero-web:$(VERSION)-$(BUILD) $(REPO)/omero-web:$$MAJOR
 
-	docker build --build-arg=PARENT_IMAGE=$(REPO)/omero-web:$(VERSION) -t $(REPO)/omero-web-standalone:$(VERSION)-$(BUILD) standalone
+	docker build --build-arg=LOCATION=./ --build-arg=PARENT_IMAGE=$(REPO)/omero-web:$(VERSION) -t $(REPO)/omero-web-standalone:$(VERSION)-$(BUILD) standalone
 	docker tag $(REPO)/omero-web-standalone:$(VERSION)-$(BUILD) $(REPO)/omero-web-standalone:$(VERSION)
 	@MAJOR_MINOR=$(shell echo $(VERSION) | cut -f1-2 -d. );\
 	docker tag $(REPO)/omero-web-standalone:$(VERSION)-$(BUILD) $(REPO)/omero-web-standalone:$$MAJOR_MINOR
