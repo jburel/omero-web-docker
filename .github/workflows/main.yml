@@ -30,5 +30,4 @@ jobs:
             org.opencontainers.image.description="OMERO.web image"
       - name: display
         run: |
-          echo  ${{ steps.meta.outputs.tags }}
-          echo  ${{ steps.meta.outputs.labels }}
+          echo fromJson(steps.gettags.outputs.tags)
