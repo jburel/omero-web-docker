@@ -24,6 +24,7 @@ jobs:
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
+        images: ${{ env.name }}
       - name: display
         run: |
           echo  ${{ steps.meta.outputs.labels }}
