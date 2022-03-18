@@ -26,6 +26,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.name }}
+          labels: |
+            org.opencontainers.image.description="OMERO.web image"
       - name: display
         run: |
           echo  ${{ steps.meta.outputs.tags }}
