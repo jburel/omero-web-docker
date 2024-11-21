@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Build
         run: ./build.sh
   upload:
@@ -54,7 +54,7 @@ jobs:
         nameParent: openmicroscopy/omero-web:latest
         folder: standalone
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - name: Get other tags
           id: gettags
           uses: jupyterhub/action-major-minor-tag-calculator@v2.0.0
