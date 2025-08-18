@@ -10,7 +10,14 @@ RUN dnf -y install epel-release
 RUN dnf install -y glibc-langpack-en
 ENV LANG en_US.utf-8
 
-RUN dnf -y install ansible-core sudo
+RUN dnf install -y python3.12 python3.12-pip
+
+# Make Python 3.12 the default
+RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+RUN alternatives --install /usr/bin/pip pip /usr/bin/pip3.12 1
+
+RUN pip install ansible-core
+RUN dnf -y install sudo
 RUN ansible-galaxy collection install ansible.posix
 RUN ansible-galaxy collection install community.general
 
