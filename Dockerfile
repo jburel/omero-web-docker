@@ -16,6 +16,11 @@ RUN dnf install -y python3.12 python3.12-pip
 RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 RUN alternatives --install /usr/bin/pip pip /usr/bin/pip3.12 1
 
+RUN python3 --version
+RUN pip --version
+
+RUN dnf install -y git
+
 RUN pip install ansible-core
 RUN dnf -y install sudo
 RUN ansible-galaxy collection install ansible.posix
