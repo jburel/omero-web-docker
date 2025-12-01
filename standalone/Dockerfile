@@ -12,7 +12,8 @@ RUN /opt/omero/web/venv3/bin/pip install \
         omero-parade \
         omero-autotag \
         omero-tagsearch \
-        whitenoise
+        whitenoise \
+        omero-web-zarr
 
 ADD 01-default-webapps.omero /opt/omero/web/config/
 
